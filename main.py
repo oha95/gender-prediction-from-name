@@ -1,9 +1,13 @@
+import random
+import nltk
+nltk.download('names')
+from nltk import NaiveBayesClassifier
 from nltk.classify import accuracy as nltk_accuracy
 from nltk.corpus import names
 
 def extract_features(word, N=2):
     last_n_letters = word[-N:]
-    return {'feature': world.lower()}
+    return {'feature': last_n_letters.lower()}
 
 # Create training data using labeled names available in NLTK
 male_list = [(name, 'male') for name in names.words('male.txt')]
